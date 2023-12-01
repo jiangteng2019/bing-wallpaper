@@ -39,7 +39,7 @@ function Write-Log {
 }
 
 # 请求URL
-$url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
+$url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1mkt=zh-CN"
 try {
     $response = Invoke-WebRequest -Uri $url
     Write-Log -Message "请求url成功"
