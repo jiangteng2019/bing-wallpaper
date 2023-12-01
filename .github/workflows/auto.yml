@@ -4,7 +4,7 @@ name: CI
 # Controls when the workflow will run at UTC time
 on:
   schedule:
-    - cron: "3 6 * * *"
+    - cron: "10 6 * * *"
 jobs:
   # This workflow contains a single job called "build"
   build:
