@@ -4,9 +4,7 @@ name: CI
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "44 2 * * *"
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    - cron: "0 3 * * *"
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -18,9 +16,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
       # Runs a single command using the runners shell
       - name: Run script
         run: npm run request
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "1348746268@qq.com"
+          git config --global user.name "tengjiang"
 
       # Runs a set of commands using the runners shell
       - name: Commit and push changes
