@@ -1,0 +1,13 @@
+{
+  "name": "bing-wallpaper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "request": "powershell -ExecutionPolicy Bypass -File request.ps1",
+    "task": "powershell -ExecutionPolicy Bypass -File task.ps1"
+  },
+  "author": "tengjiang",
+  "license": "GPL-3.0"
+}
