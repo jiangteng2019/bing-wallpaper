@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 name: CI
 
-# Controls when the workflow will run
+# Controls when the workflow will run at UTC time
 on:
   schedule:
     - cron: "15 3 * * *"
@@ -37,5 +37,6 @@ jobs:
           if [[ -n $(git status -s) ]]; then
             git add .
             git commit -m "Auto commit"
-            git push
+            git remote set-url origin https://${github.actor}:${{secrets.DEPLOY_KEY}}@github.com/${{github.repository}}.git
+            git push origin ${{ github.ref }}
           fi
