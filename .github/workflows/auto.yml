@@ -4,7 +4,7 @@ name: CI
 # Controls when the workflow will run at UTC time
 on:
   schedule:
-    - cron: "40 5 * * *"
+    - cron: "3 6 * * *"
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -37,6 +37,6 @@ jobs:
           if [[ -n $(git status -s) ]]; then
             git add .
             git commit -m "Auto commit"
-            git remote set-url origin https://${github.actor}:${{secrets.DEPLOY_KEY}}@github.com/${{github.repository}}.git
+            git remote set-url origin https://${{github.actor}}:${{secrets.DEPLOY_KEY}}@github.com/${{github.repository}}.git
             git push origin ${{ github.ref }}
           fi
